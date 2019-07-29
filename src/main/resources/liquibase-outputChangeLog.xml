@@ -1,0 +1,750 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-1">
+        <createTable tableName="CALIBRATION">
+            <column name="ID" type="BIGINT(19)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ACTIVATION_DATE" type="date"/>
+            <column name="EXPIRATION_DATE" type="date"/>
+            <column name="MOVERS_TARGET" type="INT(10)"/>
+            <column name="TOP_PERFORMER_TARGET" type="INT(10)"/>
+            <column name="TOP_TALENT_TARGET" type="INT(10)"/>
+            <column defaultValue="" name="CALIBRATION_NOTE" type="VARCHAR(10000)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-2">
+        <createTable tableName="CALIBRATION_CANDIDATE">
+            <column name="ID" type="BIGINT(19)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CALIBRATION_ID" type="BIGINT(19)"/>
+            <column name="CHANGED_IN_MEETING" type="VARCHAR(2147483647)"/>
+            <column name="HAND_RAISED" type="VARCHAR(2147483647)"/>
+            <column name="HAND_RAISED_PERSON" type="VARCHAR(2147483647)"/>
+            <column name="MOVER" type="VARCHAR(2147483647)"/>
+            <column name="TOO_EARLY" type="VARCHAR(2147483647)"/>
+            <column name="TOP_PERFORMER" type="VARCHAR(2147483647)"/>
+            <column name="TOP_TALENT" type="VARCHAR(2147483647)"/>
+            <column name="PERSON_ID" type="BIGINT(19)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-3">
+        <createTable tableName="CALIBRATION_CANDIDATE_HIST">
+            <column name="ID" type="BIGINT(19)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="START_DATE" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CALIBRATION_ID" type="BIGINT(19)"/>
+            <column name="CHANGED_IN_MEETING" type="VARCHAR(2147483647)"/>
+            <column name="END_DATE" type="TIMESTAMP"/>
+            <column name="HAND_RAISED" type="VARCHAR(2147483647)"/>
+            <column name="HAND_RAISED_PERSON" type="VARCHAR(2147483647)"/>
+            <column name="MOVER" type="VARCHAR(2147483647)"/>
+            <column name="PERSON_ID" type="BIGINT(19)"/>
+            <column name="TOO_EARLY" type="VARCHAR(2147483647)"/>
+            <column name="TOP_PERFORMER" type="VARCHAR(2147483647)"/>
+            <column name="TOP_TALENT" type="VARCHAR(2147483647)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-4">
+        <createTable tableName="CALIBRATION_HIST">
+            <column name="ID" type="BIGINT(19)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="START_DATE" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ACTIVATION_DATE" type="date"/>
+            <column name="END_DATE" type="TIMESTAMP"/>
+            <column name="EXPIRATION_DATE" type="date"/>
+            <column name="INIT_PERFOMER" type="INT(10)"/>
+            <column name="INIT_TALENT" type="INT(10)"/>
+            <column name="MOVERS_TARGET" type="INT(10)"/>
+            <column name="TOP_PERFORMER_TARGET" type="INT(10)"/>
+            <column name="TOP_TALENT_TARGET" type="INT(10)"/>
+            <column defaultValue="" name="CALIBRATION_NOTE" type="VARCHAR(10000)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-5">
+        <createTable tableName="GOLDENS">
+            <column name="ID" type="BIGINT(19)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="VARCHAR(2147483647)"/>
+            <column name="GOLDEN_INDEX" type="BIGINT(19)"/>
+            <column name="TITLE" type="VARCHAR(2147483647)"/>
+            <column name="YEAR1" type="VARCHAR(16)"/>
+            <column name="YEAR1TRAFFICLIGHT" type="VARCHAR(2147483647)"/>
+            <column name="YEAR2" type="VARCHAR(16)"/>
+            <column name="YEAR2TRAFFICLIGHT" type="VARCHAR(2147483647)"/>
+            <column name="YEAR3" type="VARCHAR(16)"/>
+            <column name="YEAR3ACTUAL" type="VARCHAR(16)"/>
+            <column name="YEAR3ACTUALTRAFFICLIGHT" type="VARCHAR(2147483647)"/>
+            <column name="YEAR3TRAFFICLIGHT" type="VARCHAR(2147483647)"/>
+            <column name="CATEGORY" type="VARCHAR(16)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-6">
+        <createTable tableName="GOLDENS_HIST">
+            <column name="ID" type="BIGINT(19)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="START_DATE" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="VARCHAR(2147483647)"/>
+            <column name="END_DATE" type="TIMESTAMP"/>
+            <column name="GOLDEN_INDEX" type="BIGINT(19)"/>
+            <column name="TITLE" type="VARCHAR(2147483647)"/>
+            <column name="YEAR1" type="VARCHAR(16)"/>
+            <column name="YEAR1TRAFFICLIGHT" type="VARCHAR(2147483647)"/>
+            <column name="YEAR2" type="VARCHAR(16)"/>
+            <column name="YEAR2TRAFFICLIGHT" type="VARCHAR(2147483647)"/>
+            <column name="YEAR3" type="VARCHAR(16)"/>
+            <column name="YEAR3ACTUAL" type="VARCHAR(16)"/>
+            <column name="YEAR3ACTUALTRAFFICLIGHT" type="VARCHAR(2147483647)"/>
+            <column name="YEAR3TRAFFICLIGHT" type="VARCHAR(2147483647)"/>
+            <column name="CATEGORY" type="VARCHAR(16)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-7">
+        <createTable tableName="MEDIABLOB">
+            <column name="DATA" type="BLOB"/>
+            <column name="ID" type="BIGINT(19)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-8">
+        <createTable tableName="MEDIAMETADATA">
+            <column name="ID" type="BIGINT(19)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CHECKSUM" type="INT(10)"/>
+            <column name="FILENAME" type="VARCHAR(2147483647)"/>
+            <column name="MEDIA_TYPE" type="INT(10)"/>
+            <column name="MIME_TYPE" type="VARCHAR(100)"/>
+            <column name="FK_ORG_OWNER" type="BIGINT(19)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-9">
+        <createTable tableName="NAMED_VALUES">
+            <column name="ID" type="BIGINT(19)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="NAME" type="VARCHAR(2147483647)"/>
+            <column name="VALUE" type="VARCHAR(2147483647)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-10">
+        <createTable tableName="NAMED_VALUES_HIST">
+            <column name="ID" type="BIGINT(19)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="START_DATE" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="END_DATE" type="TIMESTAMP"/>
+            <column name="NAME" type="VARCHAR(2147483647)"/>
+            <column name="VALUE" type="VARCHAR(2147483647)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-11">
+        <createTable tableName="ORGS">
+            <column name="ID" type="BIGINT(19)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="EBAND" type="VARCHAR(2147483647)"/>
+            <column name="PD2020_PERFORMANCE" type="VARCHAR(2147483647)"/>
+            <column name="PD2020_TALENT" type="VARCHAR(2147483647)"/>
+            <column name="PIGEX" type="VARCHAR(2147483647)"/>
+            <column name="PIGEX_RATING" type="VARCHAR(2147483647)"/>
+            <column name="CALIBRATED_PERFORMANCE" type="VARCHAR(2147483647)"/>
+            <column name="CALIBRATED_POTENTIAL" type="VARCHAR(2147483647)"/>
+            <column name="COUNTRY_OF_QUALIFICATION_1" type="VARCHAR(2147483647)"/>
+            <column name="COUNTRY_OF_QUALIFICATION_2" type="VARCHAR(2147483647)"/>
+            <column name="FUNCTIONGROUP" type="VARCHAR(2147483647)"/>
+            <column name="EBANDINTOPTEAMS" type="VARCHAR(2147483647)"/>
+            <column name="EI_SCORE_2017" type="INT(10)"/>
+            <column name="ORGS_FUNCTION" type="VARCHAR(2147483647)"/>
+            <column name="FUNCTIONPOOLS" type="VARCHAR(2147483647)"/>
+            <column name="GENDER" type="VARCHAR(2147483647)"/>
+            <column name="HIRE_DATE" type="date"/>
+            <column name="HOME_MARKET_OF_INCUMBENT_IF_ON_ASSIGNMENT" type="VARCHAR(2147483647)"/>
+            <column name="INCUMBENT_BAND" type="VARCHAR(2147483647)"/>
+            <column name="INCUMBENT_CENTRAL_ID" type="BIGINT(19)"/>
+            <column name="INCUMBENT_FIRST_NAME" type="VARCHAR(2147483647)"/>
+            <column name="INCUMBENT_PERN_ID" type="BIGINT(19)"/>
+            <column name="INCUMBENT_SURNAME" type="VARCHAR(2147483647)"/>
+            <column name="INSTITUTION_OF_QUALIFICATION_1" type="VARCHAR(2147483647)"/>
+            <column name="INSTITUTION_OF_QUALIFICATION_2" type="VARCHAR(2147483647)"/>
+            <column name="INTERNATIONAL_ASSIGNEE" type="VARCHAR(2147483647)"/>
+            <column name="IS_EX_CO_MEMBER" type="VARCHAR(2147483647)"/>
+            <column name="IS_HEAD_OF_STRUCTURE" type="VARCHAR(2147483647)"/>
+            <column name="LANGUAGE_1" type="VARCHAR(2147483647)"/>
+            <column name="LANGUAGE_2" type="VARCHAR(2147483647)"/>
+            <column name="LANGUAGE_3" type="VARCHAR(2147483647)"/>
+            <column name="LEVEL_LANGUAGE_1" type="VARCHAR(2147483647)"/>
+            <column name="LEVEL_LANGUAGE_2" type="VARCHAR(2147483647)"/>
+            <column name="LEVEL_LANGUAGE_3" type="VARCHAR(2147483647)"/>
+            <column name="MARKET" type="VARCHAR(2147483647)"/>
+            <column name="MI_SCORE_2017" type="INT(10)"/>
+            <column name="MOBILITY" type="VARCHAR(2147483647)"/>
+            <column name="MOBILITY_COMMENTS" type="VARCHAR(2147483647)"/>
+            <column name="NATIONALITY" type="VARCHAR(2147483647)"/>
+            <column name="PERFORMANCE_RATING_15_16" type="VARCHAR(2147483647)"/>
+            <column name="POTENTIAL_RATING_15_16" type="VARCHAR(2147483647)"/>
+            <column name="PROPOSED_PERFORMANCE" type="VARCHAR(2147483647)"/>
+            <column name="PROPOSED_POTENTIAL" type="VARCHAR(2147483647)"/>
+            <column name="QUALIFICATION_1" type="VARCHAR(2147483647)"/>
+            <column name="QUALIFICATION_2" type="VARCHAR(2147483647)"/>
+            <column name="REGION" type="VARCHAR(2147483647)"/>
+            <column name="ROLE_POSITION_ID" type="BIGINT(19)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ROLE_REPORTING_INTO_ID" type="BIGINT(19)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ROLE_TITLE" type="VARCHAR(2147483647)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SHOW_IN_SUCCESSION_PLANS" type="VARCHAR(2147483647)"/>
+            <column name="START_DATE_IN_ROLE" type="date"/>
+            <column name="STRUCTURE_NAME" type="VARCHAR(2147483647)"/>
+            <column name="SUBJECT_OF_QUALIFICATION_1" type="VARCHAR(2147483647)"/>
+            <column name="SUBJECT_OF_QUALIFICATION_2" type="VARCHAR(2147483647)"/>
+            <column name="TALENT_RATING_15_16" type="INT(10)"/>
+            <column name="TOP_TEAMS_LEVEL" type="BLOB"/>
+            <column name="TW_ROLE_GRADE" type="INT(10)"/>
+            <column name="UNWILLING_TO_RELOCATE_TO" type="VARCHAR(2147483647)"/>
+            <column name="VODAFONE_WAY_DEV_AREAS_BULLET_1" type="VARCHAR(10240)"/>
+            <column name="VODAFONE_WAY_STRENGTHS_BULLET_1" type="VARCHAR(10240)"/>
+            <column name="WORK_HISTORY_POSITION_1_COMPANY" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_1_COUNTRY" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_1_END_DATE" type="date"/>
+            <column name="WORK_HISTORY_POSITION_1_ROLE_TITLE" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_1_START_DATE" type="date"/>
+            <column name="WORK_HISTORY_POSITION_2_COMPANY" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_2_COUNTRY" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_2_END_DATE" type="date"/>
+            <column name="WORK_HISTORY_POSITION_2_ROLE_TITLE" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_2_START_DATE" type="date"/>
+            <column name="WORK_HISTORY_POSITION_3_COMPANY" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_3_COUNTRY" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_3_END_DATE" type="date"/>
+            <column name="WORK_HISTORY_POSITION_3_ROLE_TITLE" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_3_START_DATE" type="date"/>
+            <column name="WORK_HISTORY_POSITION_4_COMPANY" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_4_COUNTRY" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_4_END_DATE" type="date"/>
+            <column name="WORK_HISTORY_POSITION_4_ROLE_TITLE" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_4_START_DATE" type="date"/>
+            <column name="WORK_HISTORY_POSITION_5_COMPANY" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_5_COUNTRY" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_5_END_DATE" type="date"/>
+            <column name="WORK_HISTORY_POSITION_5_ROLE_TITLE" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_5_START_DATE" type="date"/>
+            <column name="YEAR_OF_QUALIFICATION_1" type="INT(10)"/>
+            <column name="YEAR_OF_QUALIFICATION_2" type="INT(10)"/>
+            <column defaultValue="0" name="LEAVER" type="VARCHAR(8)"/>
+            <column defaultValue="0" name="EBAND_LY" type="VARCHAR(8)"/>
+            <column name="WORK_HISTORY_POSITION_6_COMPANY" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_6_COUNTRY" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_6_END_DATE" type="date"/>
+            <column name="WORK_HISTORY_POSITION_6_ROLE_TITLE" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_6_START_DATE" type="date"/>
+            <column name="WORK_HISTORY_POSITION_7_COMPANY" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_7_COUNTRY" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_7_END_DATE" type="date"/>
+            <column name="WORK_HISTORY_POSITION_7_ROLE_TITLE" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_7_START_DATE" type="date"/>
+            <column name="WORK_HISTORY_POSITION_8_COMPANY" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_8_COUNTRY" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_8_END_DATE" type="date"/>
+            <column name="WORK_HISTORY_POSITION_8_ROLE_TITLE" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_8_START_DATE" type="date"/>
+            <column name="WORK_HISTORY_POSITION_9_COMPANY" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_9_COUNTRY" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_9_END_DATE" type="date"/>
+            <column name="WORK_HISTORY_POSITION_9_ROLE_TITLE" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_9_START_DATE" type="date"/>
+            <column name="WORK_HISTORY_POSITION_10_COMPANY" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_10_COUNTRY" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_10_END_DATE" type="date"/>
+            <column name="WORK_HISTORY_POSITION_10_ROLE_TITLE" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_10_START_DATE" type="date"/>
+            <column name="START_DATE_IN_BAND" type="date"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-12">
+        <createTable tableName="ORGSHIST_READY1336MONTHS">
+            <column name="ID" type="BIGINT(19)"/>
+            <column name="START_DATE" type="TIMESTAMP"/>
+            <column name="READY_13_36_MONTHS" type="BIGINT(19)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-13">
+        <createTable tableName="ORGSHIST_READY36PLUSMONTHS">
+            <column name="ID" type="BIGINT(19)"/>
+            <column name="START_DATE" type="TIMESTAMP"/>
+            <column name="READYIN_36_PLUS_MONTHS" type="BIGINT(19)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-14">
+        <createTable tableName="ORGSHIST_READYNOTAVAILABLE">
+            <column name="ID" type="BIGINT(19)"/>
+            <column name="START_DATE" type="TIMESTAMP"/>
+            <column name="READY_NOT_AVAILABLE" type="VARCHAR(2147483647)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-15">
+        <createTable tableName="ORGSHIST_READYNOWSUCCESSOR">
+            <column name="ID" type="BIGINT(19)"/>
+            <column name="START_DATE" type="TIMESTAMP"/>
+            <column name="READY_NOW_SUCCESSOR" type="VARCHAR(2147483647)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-16">
+        <createTable tableName="ORGS_HIST">
+            <column name="ID" type="BIGINT(19)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="START_DATE" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="EBAND" type="VARCHAR(2147483647)"/>
+            <column name="PD2020_PERFORMANCE" type="VARCHAR(2147483647)"/>
+            <column name="PD2020_TALENT" type="VARCHAR(2147483647)"/>
+            <column name="PIGEX" type="VARCHAR(2147483647)"/>
+            <column name="PIGEX_RATING" type="VARCHAR(2147483647)"/>
+            <column name="CALIBRATED_PERFORMANCE" type="VARCHAR(2147483647)"/>
+            <column name="CALIBRATED_POTENTIAL" type="VARCHAR(2147483647)"/>
+            <column name="COUNTRY_OF_QUALIFICATION_1" type="VARCHAR(2147483647)"/>
+            <column name="COUNTRY_OF_QUALIFICATION_2" type="VARCHAR(2147483647)"/>
+            <column name="FUNCTIONGROUP" type="VARCHAR(2147483647)"/>
+            <column name="EBANDINTOPTEAMS" type="VARCHAR(2147483647)"/>
+            <column name="EI_SCORE_2017" type="INT(10)"/>
+            <column name="END_DATE" type="TIMESTAMP"/>
+            <column name="ORGS_FUNCTION" type="VARCHAR(2147483647)"/>
+            <column name="FUNCTIONPOOLS" type="VARCHAR(2147483647)"/>
+            <column name="GENDER" type="VARCHAR(2147483647)"/>
+            <column name="HIRE_DATE" type="date"/>
+            <column name="HOME_MARKET_OF_INCUMBENT_IF_ON_ASSIGNMENT" type="VARCHAR(2147483647)"/>
+            <column name="INCUMBENT_BAND" type="VARCHAR(2147483647)"/>
+            <column name="INCUMBENT_CENTRAL_ID" type="BIGINT(19)"/>
+            <column name="INCUMBENT_FIRST_NAME" type="VARCHAR(2147483647)"/>
+            <column name="INCUMBENT_PERN_ID" type="BIGINT(19)"/>
+            <column name="INCUMBENT_SURNAME" type="VARCHAR(2147483647)"/>
+            <column name="INSTITUTION_OF_QUALIFICATION_1" type="VARCHAR(2147483647)"/>
+            <column name="INSTITUTION_OF_QUALIFICATION_2" type="VARCHAR(2147483647)"/>
+            <column name="INTERNATIONAL_ASSIGNEE" type="VARCHAR(2147483647)"/>
+            <column name="IS_EX_CO_MEMBER" type="VARCHAR(2147483647)"/>
+            <column name="IS_HEAD_OF_STRUCTURE" type="VARCHAR(2147483647)"/>
+            <column name="LANGUAGE_1" type="VARCHAR(2147483647)"/>
+            <column name="LANGUAGE_2" type="VARCHAR(2147483647)"/>
+            <column name="LANGUAGE_3" type="VARCHAR(2147483647)"/>
+            <column name="LEVEL_LANGUAGE_1" type="VARCHAR(2147483647)"/>
+            <column name="LEVEL_LANGUAGE_2" type="VARCHAR(2147483647)"/>
+            <column name="LEVEL_LANGUAGE_3" type="VARCHAR(2147483647)"/>
+            <column name="MARKET" type="VARCHAR(2147483647)"/>
+            <column name="MI_SCORE_2017" type="INT(10)"/>
+            <column name="MOBILITY" type="VARCHAR(2147483647)"/>
+            <column name="MOBILITY_COMMENTS" type="VARCHAR(2147483647)"/>
+            <column name="NATIONALITY" type="VARCHAR(2147483647)"/>
+            <column name="PERFORMANCE_RATING_15_16" type="VARCHAR(2147483647)"/>
+            <column name="POTENTIAL_RATING_15_16" type="VARCHAR(2147483647)"/>
+            <column name="PROPOSED_PERFORMANCE" type="VARCHAR(2147483647)"/>
+            <column name="PROPOSED_POTENTIAL" type="VARCHAR(2147483647)"/>
+            <column name="QUALIFICATION_1" type="VARCHAR(2147483647)"/>
+            <column name="QUALIFICATION_2" type="VARCHAR(2147483647)"/>
+            <column name="REGION" type="VARCHAR(2147483647)"/>
+            <column name="ROLE_POSITION_ID" type="BIGINT(19)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ROLE_REPORTING_INTO_ID" type="BIGINT(19)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ROLE_TITLE" type="VARCHAR(2147483647)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SHOW_IN_SUCCESSION_PLANS" type="VARCHAR(2147483647)"/>
+            <column name="START_DATE_IN_ROLE" type="date"/>
+            <column name="STRUCTURE_NAME" type="VARCHAR(2147483647)"/>
+            <column name="SUBJECT_OF_QUALIFICATION_1" type="VARCHAR(2147483647)"/>
+            <column name="SUBJECT_OF_QUALIFICATION_2" type="VARCHAR(2147483647)"/>
+            <column name="TALENT_RATING_15_16" type="INT(10)"/>
+            <column name="TOP_TEAMS_LEVEL" type="BLOB"/>
+            <column name="TW_ROLE_GRADE" type="INT(10)"/>
+            <column name="UNWILLING_TO_RELOCATE_TO" type="VARCHAR(2147483647)"/>
+            <column name="VODAFONE_WAY_DEV_AREAS_BULLET_1" type="VARCHAR(10240)"/>
+            <column name="VODAFONE_WAY_STRENGTHS_BULLET_1" type="VARCHAR(10240)"/>
+            <column name="WORK_HISTORY_POSITION_1_COMPANY" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_1_COUNTRY" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_1_END_DATE" type="date"/>
+            <column name="WORK_HISTORY_POSITION_1_ROLE_TITLE" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_1_START_DATE" type="date"/>
+            <column name="WORK_HISTORY_POSITION_2_COMPANY" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_2_COUNTRY" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_2_END_DATE" type="date"/>
+            <column name="WORK_HISTORY_POSITION_2_ROLE_TITLE" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_2_START_DATE" type="date"/>
+            <column name="WORK_HISTORY_POSITION_3_COMPANY" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_3_COUNTRY" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_3_END_DATE" type="date"/>
+            <column name="WORK_HISTORY_POSITION_3_ROLE_TITLE" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_3_START_DATE" type="date"/>
+            <column name="WORK_HISTORY_POSITION_4_COMPANY" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_4_COUNTRY" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_4_END_DATE" type="date"/>
+            <column name="WORK_HISTORY_POSITION_4_ROLE_TITLE" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_4_START_DATE" type="date"/>
+            <column name="WORK_HISTORY_POSITION_5_COMPANY" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_5_COUNTRY" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_5_END_DATE" type="date"/>
+            <column name="WORK_HISTORY_POSITION_5_ROLE_TITLE" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_5_START_DATE" type="date"/>
+            <column name="YEAR_OF_QUALIFICATION_1" type="INT(10)"/>
+            <column name="YEAR_OF_QUALIFICATION_2" type="INT(10)"/>
+            <column defaultValue="0" name="LEAVER" type="VARCHAR(8)"/>
+            <column defaultValue="0" name="EBAND_LY" type="VARCHAR(8)"/>
+            <column name="WORK_HISTORY_POSITION_6_COMPANY" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_6_COUNTRY" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_6_END_DATE" type="date"/>
+            <column name="WORK_HISTORY_POSITION_6_ROLE_TITLE" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_6_START_DATE" type="date"/>
+            <column name="WORK_HISTORY_POSITION_7_COMPANY" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_7_COUNTRY" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_7_END_DATE" type="date"/>
+            <column name="WORK_HISTORY_POSITION_7_ROLE_TITLE" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_7_START_DATE" type="date"/>
+            <column name="WORK_HISTORY_POSITION_8_COMPANY" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_8_COUNTRY" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_8_END_DATE" type="date"/>
+            <column name="WORK_HISTORY_POSITION_8_ROLE_TITLE" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_8_START_DATE" type="date"/>
+            <column name="WORK_HISTORY_POSITION_9_COMPANY" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_9_COUNTRY" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_9_END_DATE" type="date"/>
+            <column name="WORK_HISTORY_POSITION_9_ROLE_TITLE" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_9_START_DATE" type="date"/>
+            <column name="WORK_HISTORY_POSITION_10_COMPANY" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_10_COUNTRY" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_10_END_DATE" type="date"/>
+            <column name="WORK_HISTORY_POSITION_10_ROLE_TITLE" type="VARCHAR(2147483647)"/>
+            <column name="WORK_HISTORY_POSITION_10_START_DATE" type="date"/>
+            <column name="START_DATE_IN_BAND" type="date"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-17">
+        <createTable tableName="ORGS_READY1336MONTHS">
+            <column name="ORGS_ID" type="BIGINT(19)"/>
+            <column name="READY_13_36_MONTHS" type="BIGINT(19)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-18">
+        <createTable tableName="ORGS_READY36PLUSMONTHS">
+            <column name="ORGS_ID" type="BIGINT(19)"/>
+            <column name="READYIN_36_PLUS_MONTHS" type="BIGINT(19)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-19">
+        <createTable tableName="ORGS_READYNOTAVAILABLE">
+            <column name="ORGS_ID" type="BIGINT(19)"/>
+            <column name="READY_NOT_AVAILABLE" type="VARCHAR(2147483647)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-20">
+        <createTable tableName="ORGS_READYNOWSUCCESSOR">
+            <column name="ORGS_ID" type="BIGINT(19)"/>
+            <column name="READY_NOW_SUCCESSOR" type="VARCHAR(2147483647)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-21">
+        <createTable tableName="RESOURCINGS">
+            <column name="ID" type="BIGINT(19)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="COLOURFURTHER" type="VARCHAR(2147483647)"/>
+            <column name="COLOUR1" type="VARCHAR(2147483647)"/>
+            <column name="COLOUR2" type="VARCHAR(2147483647)"/>
+            <column name="COLOUR3" type="VARCHAR(2147483647)"/>
+            <column name="FURTHER" type="VARCHAR(2147483647)"/>
+            <column name="VODAFONE_GROUP" type="VARCHAR(2147483647)"/>
+            <column name="M1" type="VARCHAR(2147483647)"/>
+            <column name="M2" type="VARCHAR(2147483647)"/>
+            <column name="M3" type="VARCHAR(2147483647)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-22">
+        <createTable tableName="RESOURCINGS_HIST">
+            <column name="ID" type="BIGINT(19)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="START_DATE" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="COLOURFURTHER" type="VARCHAR(2147483647)"/>
+            <column name="COLOUR1" type="VARCHAR(2147483647)"/>
+            <column name="COLOUR2" type="VARCHAR(2147483647)"/>
+            <column name="COLOUR3" type="VARCHAR(2147483647)"/>
+            <column name="END_DATE" type="TIMESTAMP"/>
+            <column name="FURTHER" type="VARCHAR(2147483647)"/>
+            <column name="VODAFONE_GROUP" type="VARCHAR(2147483647)"/>
+            <column name="M1" type="VARCHAR(2147483647)"/>
+            <column name="M2" type="VARCHAR(2147483647)"/>
+            <column name="M3" type="VARCHAR(2147483647)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-23">
+        <createTable tableName="SCHEMA_VERSION">
+            <column name="installed_rank" type="INT(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="VARCHAR(50)"/>
+            <column name="description" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="script" type="VARCHAR(1000)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="checksum" type="INT(10)"/>
+            <column name="installed_by" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP()" name="installed_on" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="execution_time" type="INT(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="success" type="BOOLEAN(1)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-24">
+        <createTable tableName="SEQUENCE">
+            <column name="SEQ_NAME" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SEQ_COUNT" type="DECIMAL(38)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-25">
+        <createTable tableName="USER_NOTE">
+            <column name="USERNAME" type="VARCHAR(2147483647)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="NOTES" type="VARCHAR(2147483647)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-26">
+        <createTable tableName="USER_NOTE_HIST">
+            <column name="START_DATE" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="USERNAME" type="VARCHAR(2147483647)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="END_DATE" type="TIMESTAMP"/>
+            <column name="NOTES" type="VARCHAR(2147483647)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-27">
+        <createTable tableName="WOMEN">
+            <column name="ID" type="BIGINT(19)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="WOMEN_GROUP" type="VARCHAR(2147483647)"/>
+            <column name="MARKET" type="VARCHAR(2147483647)"/>
+            <column name="QUATER" type="VARCHAR(2147483647)"/>
+            <column name="WOMEN_ROLE" type="VARCHAR(2147483647)"/>
+            <column name="PERSON_ID" type="BIGINT(19)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ONLY_SATUTORY_NUMBERS" type="VARCHAR(16)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-28">
+        <createTable tableName="WOMEN_HIST">
+            <column name="ID" type="BIGINT(19)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="START_DATE" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="END_DATE" type="TIMESTAMP"/>
+            <column name="WOMEN_GROUP" type="VARCHAR(2147483647)"/>
+            <column name="MARKET" type="VARCHAR(2147483647)"/>
+            <column name="PERSON_ID" type="BIGINT(19)"/>
+            <column name="QUATER" type="VARCHAR(2147483647)"/>
+            <column name="WOMEN_ROLE" type="VARCHAR(2147483647)"/>
+            <column name="ONLY_SATUTORY_NUMBERS" type="VARCHAR(16)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-29">
+        <addPrimaryKey columnNames="ID" constraintName="CONSTRAINT_2" tableName="ORGS"/>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-30">
+        <addPrimaryKey columnNames="ID" constraintName="CONSTRAINT_25" tableName="MEDIABLOB"/>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-31">
+        <addPrimaryKey columnNames="ID" constraintName="CONSTRAINT_3" tableName="GOLDENS"/>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-32">
+        <addPrimaryKey columnNames="ID, START_DATE" constraintName="CONSTRAINT_4" tableName="ORGS_HIST"/>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-33">
+        <addPrimaryKey columnNames="ID" constraintName="CONSTRAINT_4E" tableName="WOMEN"/>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-34">
+        <addPrimaryKey columnNames="ID" constraintName="CONSTRAINT_5" tableName="CALIBRATION_CANDIDATE"/>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-35">
+        <addPrimaryKey columnNames="ID, START_DATE" constraintName="CONSTRAINT_59" tableName="NAMED_VALUES_HIST"/>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-36">
+        <addPrimaryKey columnNames="ID" constraintName="CONSTRAINT_6" tableName="NAMED_VALUES"/>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-37">
+        <addPrimaryKey columnNames="SEQ_NAME" constraintName="CONSTRAINT_7" tableName="SEQUENCE"/>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-38">
+        <addPrimaryKey columnNames="ID, START_DATE" constraintName="CONSTRAINT_A" tableName="GOLDENS_HIST"/>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-39">
+        <addPrimaryKey columnNames="ID, START_DATE" constraintName="CONSTRAINT_A9" tableName="RESOURCINGS_HIST"/>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-40">
+        <addPrimaryKey columnNames="USERNAME" constraintName="CONSTRAINT_B" tableName="USER_NOTE"/>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-41">
+        <addPrimaryKey columnNames="ID" constraintName="CONSTRAINT_BF" tableName="MEDIAMETADATA"/>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-42">
+        <addPrimaryKey columnNames="ID, START_DATE" constraintName="CONSTRAINT_C" tableName="CALIBRATION_HIST"/>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-43">
+        <addPrimaryKey columnNames="ID" constraintName="CONSTRAINT_C9" tableName="RESOURCINGS"/>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-44">
+        <addPrimaryKey columnNames="ID" constraintName="CONSTRAINT_D" tableName="CALIBRATION"/>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-45">
+        <addPrimaryKey columnNames="START_DATE, USERNAME" constraintName="CONSTRAINT_D0" tableName="USER_NOTE_HIST"/>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-46">
+        <addPrimaryKey columnNames="ID, START_DATE" constraintName="CONSTRAINT_D1" tableName="WOMEN_HIST"/>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-47">
+        <addPrimaryKey columnNames="ID, START_DATE" constraintName="CONSTRAINT_E" tableName="CALIBRATION_CANDIDATE_HIST"/>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-48">
+        <addPrimaryKey columnNames="installed_rank" constraintName="SCHEMA_VERSION_pk" tableName="SCHEMA_VERSION"/>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-49">
+        <createIndex indexName="FK_CALIBRATION_CANDIDATE_CALIBRATION_ID_INDEX_5" tableName="CALIBRATION_CANDIDATE">
+            <column name="CALIBRATION_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-50">
+        <createIndex indexName="FK_CALIBRATION_CANDIDATE_PERSON_ID_INDEX_5" tableName="CALIBRATION_CANDIDATE">
+            <column name="PERSON_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-51">
+        <createIndex indexName="FK_ORGSHIST_READY1336MONTHS_ID_INDEX_5" tableName="ORGSHIST_READY1336MONTHS">
+            <column name="ID"/>
+            <column name="START_DATE"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-52">
+        <createIndex indexName="FK_ORGSHIST_READY36PLUSMONTHS_ID_INDEX_A" tableName="ORGSHIST_READY36PLUSMONTHS">
+            <column name="ID"/>
+            <column name="START_DATE"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-53">
+        <createIndex indexName="FK_ORGSHIST_READYNOTAVAILABLE_ID_INDEX_1" tableName="ORGSHIST_READYNOTAVAILABLE">
+            <column name="ID"/>
+            <column name="START_DATE"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-54">
+        <createIndex indexName="FK_ORGSHIST_READYNOWSUCCESSOR_ID_INDEX_5" tableName="ORGSHIST_READYNOWSUCCESSOR">
+            <column name="ID"/>
+            <column name="START_DATE"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-55">
+        <createIndex indexName="FK_ORGS_READY1336MONTHS_ORGS_ID_INDEX_7" tableName="ORGS_READY1336MONTHS">
+            <column name="ORGS_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-56">
+        <createIndex indexName="FK_ORGS_READY36PLUSMONTHS_ORGS_ID_INDEX_4" tableName="ORGS_READY36PLUSMONTHS">
+            <column name="ORGS_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-57">
+        <createIndex indexName="FK_ORGS_READYNOTAVAILABLE_ORGS_ID_INDEX_B" tableName="ORGS_READYNOTAVAILABLE">
+            <column name="ORGS_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-58">
+        <createIndex indexName="FK_ORGS_READYNOWSUCCESSOR_ORGS_ID_INDEX_F" tableName="ORGS_READYNOWSUCCESSOR">
+            <column name="ORGS_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-59">
+        <createIndex indexName="FK_WOMEN_PERSON_ID_INDEX_3" tableName="WOMEN">
+            <column name="PERSON_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-60">
+        <createIndex indexName="SCHEMA_VERSION_s_idx" tableName="SCHEMA_VERSION">
+            <column name="success"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-61">
+        <addForeignKeyConstraint baseColumnNames="CALIBRATION_ID" baseTableName="CALIBRATION_CANDIDATE" constraintName="FK_CALIBRATION_CANDIDATE_CALIBRATION_ID" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="CALIBRATION"/>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-62">
+        <addForeignKeyConstraint baseColumnNames="PERSON_ID" baseTableName="CALIBRATION_CANDIDATE" constraintName="FK_CALIBRATION_CANDIDATE_PERSON_ID" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="ORGS"/>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-63">
+        <addForeignKeyConstraint baseColumnNames="ID,START_DATE" baseTableName="ORGSHIST_READY1336MONTHS" constraintName="FK_ORGSHIST_READY1336MONTHS_ID" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID,START_DATE" referencedTableName="ORGS_HIST"/>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-64">
+        <addForeignKeyConstraint baseColumnNames="ID,START_DATE" baseTableName="ORGSHIST_READY36PLUSMONTHS" constraintName="FK_ORGSHIST_READY36PLUSMONTHS_ID" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID,START_DATE" referencedTableName="ORGS_HIST"/>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-65">
+        <addForeignKeyConstraint baseColumnNames="ID,START_DATE" baseTableName="ORGSHIST_READYNOTAVAILABLE" constraintName="FK_ORGSHIST_READYNOTAVAILABLE_ID" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID,START_DATE" referencedTableName="ORGS_HIST"/>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-66">
+        <addForeignKeyConstraint baseColumnNames="ID,START_DATE" baseTableName="ORGSHIST_READYNOWSUCCESSOR" constraintName="FK_ORGSHIST_READYNOWSUCCESSOR_ID" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID,START_DATE" referencedTableName="ORGS_HIST"/>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-67">
+        <addForeignKeyConstraint baseColumnNames="ORGS_ID" baseTableName="ORGS_READY1336MONTHS" constraintName="FK_ORGS_READY1336MONTHS_ORGS_ID" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="ORGS"/>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-68">
+        <addForeignKeyConstraint baseColumnNames="ORGS_ID" baseTableName="ORGS_READY36PLUSMONTHS" constraintName="FK_ORGS_READY36PLUSMONTHS_ORGS_ID" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="ORGS"/>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-69">
+        <addForeignKeyConstraint baseColumnNames="ORGS_ID" baseTableName="ORGS_READYNOTAVAILABLE" constraintName="FK_ORGS_READYNOTAVAILABLE_ORGS_ID" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="ORGS"/>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-70">
+        <addForeignKeyConstraint baseColumnNames="ORGS_ID" baseTableName="ORGS_READYNOWSUCCESSOR" constraintName="FK_ORGS_READYNOWSUCCESSOR_ORGS_ID" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="ORGS"/>
+    </changeSet>
+    <changeSet author="Andrew Landeg (generated)" id="1564409225794-71">
+        <addForeignKeyConstraint baseColumnNames="PERSON_ID" baseTableName="WOMEN" constraintName="FK_WOMEN_PERSON_ID" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="ORGS"/>
+    </changeSet>
+</databaseChangeLog>
